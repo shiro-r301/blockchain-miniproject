@@ -111,7 +111,7 @@ contract PharmaSupplyChain {
         if(b.manufacturer != address(0)){
             return (true, b.manufacturer, b.timestamp, b.materialIds, b.quantities);
         } else {
-            return (false, address(0), 0, new bytes32 , new uint256 );
+            return (false, address(0), 0, new bytes32[](0) , new uint256[](0));
         }
     }
 
