@@ -1,0 +1,510 @@
+{	
+	"abi": [
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32[]",
+					"name": "materialIds",
+					"type": "bytes32[]"
+				},
+				{
+					"internalType": "uint256[]",
+					"name": "quantities",
+					"type": "uint256[]"
+				}
+			],
+			"name": "addRawMaterials",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "orderId",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "address",
+					"name": "transporter",
+					"type": "address"
+				}
+			],
+			"name": "assignTransporter",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "medicineId",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "batchId",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "bytes32[]",
+					"name": "materialIds",
+					"type": "bytes32[]"
+				}
+			],
+			"name": "createBatch",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "medicineId",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "batchId",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "manufacturer",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				}
+			],
+			"name": "BatchCreated",
+			"type": "event"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "orderId",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "hash",
+					"type": "bytes32"
+				}
+			],
+			"name": "createOrder",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "orderId",
+					"type": "bytes32"
+				},
+				{
+					"indexed": false,
+					"internalType": "bytes32",
+					"name": "hash",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "creator",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "blockNumber",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				}
+			],
+			"name": "OrderCreated",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "orderId",
+					"type": "bytes32"
+				},
+				{
+					"indexed": false,
+					"internalType": "enum PharmaSupplyChain.OrderStatus",
+					"name": "status",
+					"type": "uint8"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "updater",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "blockNumber",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				}
+			],
+			"name": "OrderStatusUpdated",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "participant",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "enum PharmaSupplyChain.Role",
+					"name": "role",
+					"type": "uint8"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "registeredBy",
+					"type": "address"
+				}
+			],
+			"name": "ParticipantRegistered",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "materialId",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "supplier",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				}
+			],
+			"name": "RawMaterialAdded",
+			"type": "event"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "participant",
+					"type": "address"
+				},
+				{
+					"internalType": "enum PharmaSupplyChain.Role",
+					"name": "role",
+					"type": "uint8"
+				}
+			],
+			"name": "registerParticipant",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "newOwner",
+					"type": "address"
+				}
+			],
+			"name": "transferOwnership",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "orderId",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "transporter",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "updater",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "blockNumber",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				}
+			],
+			"name": "TransporterAssigned",
+			"type": "event"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "orderId",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "enum PharmaSupplyChain.OrderStatus",
+					"name": "newStatus",
+					"type": "uint8"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "newHash",
+					"type": "bytes32"
+				}
+			],
+			"name": "updateOrderStatus",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "orderId",
+					"type": "bytes32"
+				}
+			],
+			"name": "getOrder",
+			"outputs": [
+				{
+					"internalType": "bytes32",
+					"name": "",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "enum PharmaSupplyChain.OrderStatus",
+					"name": "",
+					"type": "uint8"
+				},
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "owner",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "",
+					"type": "bytes32"
+				}
+			],
+			"name": "rawMaterials",
+			"outputs": [
+				{
+					"internalType": "bytes32",
+					"name": "materialId",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "address",
+					"name": "supplier",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "quantity",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"name": "roles",
+			"outputs": [
+				{
+					"internalType": "enum PharmaSupplyChain.Role",
+					"name": "",
+					"type": "uint8"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "medicineId",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "batchId",
+					"type": "bytes32"
+				}
+			],
+			"name": "verifyBatch",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "isValid",
+					"type": "bool"
+				},
+				{
+					"internalType": "address",
+					"name": "manufacturer",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes32[]",
+					"name": "materials",
+					"type": "bytes32[]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "materialId",
+					"type": "bytes32"
+				}
+			],
+			"name": "verifyRawMaterial",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "isValid",
+					"type": "bool"
+				},
+				{
+					"internalType": "address",
+					"name": "supplier",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		}
+	]
+}
